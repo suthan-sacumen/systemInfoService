@@ -25,6 +25,12 @@ public class SystemInfoController {
 	@Autowired
 	private SystemInfoDAO systemInfoDAO;
 
+	/**
+	 * The service to create System INFO
+	 * 
+	 * @param systemInfo
+	 * @return
+	 */
 	@RequestMapping(value = "/createSystemInfo", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public SystemInfoDTO createSystemInfo(@RequestBody SystemInfoDTO systemInfo) {
@@ -33,6 +39,11 @@ public class SystemInfoController {
 		return systemInfoDAO.createSystemInfo(systemInfo);
 	}
 	
+	/**
+	 * Service to load all saved system information
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/loadAllSystemInfo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<SystemInfoDTO> loadAllSystemInfo() {
