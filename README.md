@@ -1,5 +1,5 @@
 # System Info Service
-Application to create system service and load all the stored system services 
+Application to create system info and load all the stored system infos 
 
 ## How to build and run?
 
