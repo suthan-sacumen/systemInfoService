@@ -1,4 +1,4 @@
-package com.sacumen.system.info.api.config;
+package com.client.system.info.api.config;
 
 import javax.sql.DataSource;
 
@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Application config class
+ *
+ */
 @Configuration
 @PropertySource("classpath:systemInfo.properties")
 @EnableTransactionManagement
-public class ApplicationConfig {
-
+public class ApplicationConfig { 
 	@Autowired
 	private Environment environment;
 
@@ -28,6 +31,11 @@ public class ApplicationConfig {
 		return factory -> factory.setContextPath("/systemInfo");
 	}
 
+	/**
+	 * Data Source bean
+	 * 
+	 * @return
+	 */
 	@Bean(name = "dataSource")
 	public DataSource getDataSource() {
 		DataSource dataSource = DataSourceBuilder.create().username(environment.getProperty("systemInfo.datasource.username"))

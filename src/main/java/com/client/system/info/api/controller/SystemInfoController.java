@@ -1,6 +1,5 @@
-package com.sacumen.system.info.api.controller;
+package com.client.system.info.api.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -12,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sacumen.system.info.api.dao.SystemInfoDAO;
-import com.sacumen.system.info.api.dto.SystemInfoDTO;
-import com.sacumen.system.info.api.util.SystemSerialNumberUtil;
+import com.client.system.info.api.dao.SystemInfoDAO;
+import com.client.system.info.api.dto.SystemInfoDTO;
+import com.client.system.info.api.util.SystemSerialNumberUtil;
 
 @RestController
 @RequestMapping(value = { "/api" })
 public class SystemInfoController {
 
 	static Logger logger = Logger.getLogger(SystemInfoController.class);
-	
+
 	@Autowired
 	private SystemInfoDAO systemInfoDAO;
 
@@ -38,7 +37,7 @@ public class SystemInfoController {
 		systemInfo.setSerialNumber(SystemSerialNumberUtil.GetSystemMotherBoard_SerialNumber());
 		return systemInfoDAO.createSystemInfo(systemInfo);
 	}
-	
+
 	/**
 	 * Service to load all saved system information
 	 * 

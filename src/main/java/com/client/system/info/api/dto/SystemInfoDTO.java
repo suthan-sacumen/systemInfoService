@@ -1,5 +1,11 @@
-package com.sacumen.system.info.api.dto;
+package com.client.system.info.api.dto;
 
+/**
+ * 
+ * Model class to transfer DATA
+ * Has System loaded serial number and OS Name and other user Provided values
+ *
+ */
 public class SystemInfoDTO {
 
 	private String serialNumber;
@@ -7,7 +13,7 @@ public class SystemInfoDTO {
 	private String ramSize;
 	private String manufacturer;
 	private String storageSize;
-	
+
 	public String getSerialNumber() {
 		return serialNumber;
 	}

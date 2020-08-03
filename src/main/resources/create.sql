@@ -1,4 +1,4 @@
-Create Schema 'SACUMEN';
+Create Schema 'Client';
 
 CREATE TABLE `SYSTEM_INFO` (
   `SYSTEM_INFO_ID` int NOT NULL AUTO_INCREMENT,

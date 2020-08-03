@@ -1,4 +1,4 @@
-package com.sacumen.system.info.api;
+package com.client.system.info.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

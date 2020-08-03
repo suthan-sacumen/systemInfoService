@@ -1,4 +1,4 @@
-package com.sacumen.system.info.api.dao;
+package com.client.system.info.api.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,19 +19,23 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sacumen.system.info.api.dto.SystemInfoDTO;
+import com.client.system.info.api.dto.SystemInfoDTO;
 
+/**
+ * System Info DAO Implementation.
+ *
+ */
 @Repository
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
 public class SystemInfoDAOImpl implements SystemInfoDAO {
 
 	static final Log LOG = LogFactory.getLog(SystemInfoDAOImpl.class);
 
-	static final String BASE_SQL = "SELECT SERIAL_NUMER, OS_NAME, RAM_SIZE, MANUFACTURER, STORAGE_SIZE FROM sacumen.SYSTEM_INFO; "; //$NON-NLS-2$
+	static final String BASE_SQL = "SELECT SERIAL_NUMER, OS_NAME, RAM_SIZE, MANUFACTURER, STORAGE_SIZE FROM sacumen.SYSTEM_INFO; "; // $NON-NLS-2$
 
 	static final String INSERT_SYSTEM_INFO = "INSERT INTO sacumen.SYSTEM_INFO (SERIAL_NUMER, OS_NAME, RAM_SIZE, MANUFACTURER, STORAGE_SIZE) "
 			+ " VALUES (:serialNumber, :osName, :ramSize, :manufacturer, :storageSize);";
-	
+
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
@@ -39,8 +43,10 @@ public class SystemInfoDAOImpl implements SystemInfoDAO {
 	public void setJdbcTemplate(final DataSource dataSource) {
 		this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
-	
-	
+
+	/**
+	 * Fetched all System info data from DB
+	 */
 	@Override
 	public List<SystemInfoDTO> loadAllSystemInfo() {
 		String sql = BASE_SQL;
@@ -52,6 +58,9 @@ public class SystemInfoDAOImpl implements SystemInfoDAO {
 
 	}
 
+	/**
+	 * Create System Info record in DB
+	 */
 	@Override
 	public SystemInfoDTO createSystemInfo(SystemInfoDTO systemInfo) {
 		MapSqlParameterSource paramMap = new MapSqlParameterSource();
@@ -60,7 +69,7 @@ public class SystemInfoDAOImpl implements SystemInfoDAO {
 		paramMap.addValue("ramSize", systemInfo.getRamSize());
 		paramMap.addValue("manufacturer", systemInfo.getManufacturer());
 		paramMap.addValue("storageSize", systemInfo.getStorageSize());
-		
+
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
 		jdbcTemplate.update(INSERT_SYSTEM_INFO, paramMap, holder);
 
@@ -77,9 +86,9 @@ class SystemInfoRowMapper implements RowMapper<SystemInfoDTO> {
 		systemInfo.setSerialNumber(rs.getString("SERIAL_NUMER"));
 		systemInfo.setOsName(rs.getString("OS_NAME"));
 		systemInfo.setRamSize(rs.getString("RAM_SIZE"));
-		systemInfo.setManufacturer(rs.getString("MANUFACTURER")); 
+		systemInfo.setManufacturer(rs.getString("MANUFACTURER"));
 		systemInfo.setStorageSize(rs.getString("STORAGE_SIZE"));
-		
+
 		return systemInfo;
 	}
 
