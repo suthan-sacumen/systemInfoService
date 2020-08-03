@@ -1,7 +1,0 @@
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/config/ApplicationConfig.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/dto/SystemInfoDTO.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/util/SystemSerialNumberUtil.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/dao/SystemInfoDAOImpl.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/dao/SystemInfoDAO.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/controller/SystemInfoController.java
-/home/suthan/jenkinsPOC/systemInfoService/src/main/java/com/sacumen/system/info/api/Application.java
